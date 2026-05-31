@@ -1,0 +1,59 @@
+# PyScraper v7 — requirements
+# ============================================================
+# Install groups:
+#   Core (required):     pip install -r requirements.txt
+#   Full stack:          pip install -r requirements.txt --extra-index-url ...
+#                        plus individual optional groups below
+# ============================================================
+
+# ── CORE (always required) ────────────────────────────────────
+aiosqlite>=0.19
+httpx[http2]>=0.27          # HTTP/2 fetcher
+selectolax>=0.3             # fast HTML parser
+pybloom-live>=3.1           # bloom filter dedup
+
+# ── [I1] PostgreSQL ───────────────────────────────────────────
+asyncpg>=0.29               # pip install asyncpg
+
+# ── [I2] Redis frontier ───────────────────────────────────────
+redis>=5.0                  # pip install redis
+
+# ── [I3] Playwright browser pool ─────────────────────────────
+playwright>=1.44            # pip install playwright && playwright install chromium
+
+# ── [F1] Proxy pool ───────────────────────────────────────────
+# No extra package — uses httpx proxy support built-in
+
+# ── [F2] TLS fingerprint spoofing ────────────────────────────
+curl-cffi>=0.6              # pip install curl-cffi
+
+# ── [F3] CAPTCHA solving ─────────────────────────────────────
+2captcha-python>=1.2        # pip install 2captcha-python
+
+# ── [F4] Article extraction ───────────────────────────────────
+trafilatura>=1.10           # pip install trafilatura
+
+# ── [F6] Named entity recognition ────────────────────────────
+spacy>=3.7                  # pip install spacy
+                            # python -m spacy download en_core_web_sm
+
+# ── [F7] Language detection ───────────────────────────────────
+lingua-language-detector>=2.0  # pip install lingua-language-detector
+# fallback: langdetect>=1.0   # pip install langdetect
+
+# ── [F8] Semantic deduplication ───────────────────────────────
+sentence-transformers>=3.0  # pip install sentence-transformers
+qdrant-client>=1.9          # pip install qdrant-client
+
+# ── [F15] WAL event log ───────────────────────────────────────
+aiofiles>=23.0              # pip install aiofiles
+
+# ── [F16] OpenSearch streaming ───────────────────────────────
+opensearch-py>=2.6          # pip install opensearch-py
+
+# ── [F17] Prometheus metrics ─────────────────────────────────
+prometheus-client>=0.20     # pip install prometheus-client
+
+# ── [F18] OpenTelemetry tracing ───────────────────────────────
+opentelemetry-sdk>=1.25                          # pip install opentelemetry-sdk
+opentelemetry-exporter-otlp-proto-grpc>=1.25     # pip install opentelemetry-exporter-otlp-proto-grpc
